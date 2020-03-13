@@ -6,5 +6,12 @@
   	<typeAliases>
   			<typeAlias type="kr.chans.main.model.Test" alias="test"/>
   			
+  			
+  			<typeAlias type ="kr.chans.project.model.ImageVO" alias="imageVO"/>
+  			
+  			<typeAlias type="kr.chans.project.model.ProjectVO" alias="projectVO"/>
+  						
+  			
+  			
   	</typeAliases>
   </configuration>
