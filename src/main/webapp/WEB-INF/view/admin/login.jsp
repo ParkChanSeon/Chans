@@ -174,7 +174,7 @@ background-color:black;
 color:white;
 
 }
-
+  
 #cancelBtn{
 border-radius: 20px;
 margin-top: 20px;
