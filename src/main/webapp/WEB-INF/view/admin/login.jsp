@@ -10,7 +10,7 @@
 <!-- Scripts -->
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script>
-
+var regFlag = false;
 
 
 function loginCheck(){
@@ -45,11 +45,24 @@ function loginCheck(){
 
 
 function regBtnClick(){
-	
-	
+			
+		$(".loginDiv").css("display","none");
+		$(".regDiv").css("display","inline-block");
+		
 	
 }
 
+function cancelBtnClick(){
+			
+		$(".regDiv").css("display","none");
+		$(".loginDiv").css("display","inline-block");
+		
+		$("#newId").val("");
+		$("#newPw").val("");
+		$("#confirmPw").val("");
+		
+	
+}
 
 
 </script>
@@ -76,7 +89,16 @@ html, body {
     border-radius: 20px;
     padding: 50px 50px 50px 50px;
 }
-
+.regDiv{
+	display: none;
+    width: 200px;
+    height: 225px;
+    margin: auto;
+   
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 50px 50px 50px 50px;
+}
 
 input {
 padding-left:15px;
@@ -120,6 +142,50 @@ color:white;
 
 }
 
+#newId{
+width:100%;
+height: 30px;
+border-radius: 20px;
+}
+
+#newPw{
+width:100%;
+height: 30px;
+border-radius: 20px;
+margin-top:20px;
+}
+
+#confirmPw{
+width:100%;
+height: 30px;
+border-radius: 20px;
+margin-top:20px;
+}
+
+
+
+#regBtn02{
+border-radius: 20px;
+margin-top: 20px;
+width: 200px;
+height: 30px;
+
+background-color:black;
+color:white;
+
+}
+
+#cancelBtn{
+border-radius: 20px;
+margin-top: 20px;
+width: 200px;
+height: 30px;
+
+background-color:gray;
+color:white;
+}
+
+
 .wrapDiv{
 width:100%; 
 height: 100%;
@@ -145,8 +211,24 @@ display:flex;
 
 
 <button id="loginBtn" onclick="loginCheck()">Sign In</button>
-<button id="regBtn">Sign Up</button>
+<button id="regBtn" onclick="regBtnClick(regFlag)">Sign Up</button>
 </div>
+
+
+
+<div class="regDiv">
+
+<input type="text" id="newId" placeholder="ID">
+
+<input type="password" id ="newPw"  placeholder="PASSWORD">
+
+<input type="password" id ="confirmPw"  placeholder="관리자 비밀번호">
+
+<button id="regBtn02" onclick="regBtnClick()">Sign Up</button>
+<button id="cancelBtn" onclick="cancelBtnClick()">Cancel</button>
+</div>
+
+
 </div>
 </body>
 
