@@ -11,6 +11,8 @@
   			
   			<typeAlias type="kr.chans.project.model.ProjectVO" alias="projectVO"/>
   						
+  						
+  					
   			
   			
   	</typeAliases>

@@ -85,7 +85,7 @@ html, body {
     height: 200px;
     margin: auto;
    
-    border: 1px solid black;
+    border: 2px solid white;
     border-radius: 20px;
     padding: 50px 50px 50px 50px;
 }
@@ -95,14 +95,16 @@ html, body {
     height: 225px;
     margin: auto;
    
-    border: 1px solid black;
+   border: 2px solid white;
     border-radius: 20px;
     padding: 50px 50px 50px 50px;
 }
 
 input {
 padding-left:15px;
+border:1px solid black;
 }
+
 
 
 #adminId{
@@ -128,7 +130,7 @@ width: 200px;
 height: 30px;
 background-color:black;
 color:white;
-
+border : 1px solid black;
 }
 
 #regBtn{
@@ -139,7 +141,7 @@ height: 30px;
 
 background-color:gray;
 color:white;
-
+border : 1px solid gray;
 }
 
 #newId{
@@ -172,7 +174,7 @@ height: 30px;
 
 background-color:black;
 color:white;
-
+border : 1px solid black;
 }
   
 #cancelBtn{
@@ -183,6 +185,7 @@ height: 30px;
 
 background-color:gray;
 color:white;
+border : 1px solid gray;
 }
 
 
@@ -191,6 +194,7 @@ width:100%;
 height: 100%;
 text-align: center;
 display:flex;
+background-color: #00000099;
 }
 </style>
 

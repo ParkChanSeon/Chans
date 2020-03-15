@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.chans.LoginMapper">
+
+<resultMap type="kr.chans.common.model.AdminPwVO" id="adminPwVO">
+	<result property="apNo" column="ap_no"/>
+	<result property="apId" column="ap_id"/>
+	<result property="apPw" column="ap_pw"/>
+
+</resultMap>
+
+
+<resultMap type="kr.chans.common.model.AdminVO" id="adminVO">
+	<result property="adminName" column="admin_name"/>
+	<result property="adminId" column="admin_id"/>
+	<result property="adminPw" column="admin_pw"/>
+
+</resultMap>
+
+
+<!--  로그인 아이디 , 비밀번호 확인 -->
+<select id="loginCheck"  parameterType="kr.chans.common.model.AdminVO" resultMap="adminVO">
+		select * from tb_admin
+		where 
+		admin_id = #{adminId}
+		and
+		admin_pw = #{adminPw}
+</select>
+
+
+<!-- 관리자 비밀번호 확인 -->
+<select id="adminPwCheck"  parameterType="kr.chans.common.model.AdminPwVO" resultMap="adminPwVO">
+		select * from tb_admin_password
+		where 
+		ap_id = 'admin01'
+		and
+		convert(aes_decrypt(unhex(ap_pw),'key') using utf8 ) = #{apPw};
+</select>
+
+
+</mapper>

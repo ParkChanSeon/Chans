@@ -1,27 +1,26 @@
-package kr.chans.main.controller;
+package kr.chans.common.controller;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.chans.common.model.AdminPwVO;
 import kr.chans.common.service.CommonService;
-import kr.chans.main.model.Test;
-import kr.chans.main.service.MainService;
 
 @Controller
-public class MainController {
+public class CommonController {
 
-	@Autowired
-	MainService service;
 	
 	@Autowired
-	CommonService commonService;
+	private CommonService commonService;
 	
 	
-	
-	@RequestMapping("/")
-	public String mainView() {
+	@RequestMapping(value="/post/registration/admin")
+	public @ResponseBody String regAdmin (HttpServletRequest request) {
+		
 		
 		
 		AdminPwVO param = new AdminPwVO();
@@ -38,7 +37,9 @@ public class MainController {
 		}
 		
 		
-		return "/main/main";
+		
+		return "";
 	}
+	
 	
 }

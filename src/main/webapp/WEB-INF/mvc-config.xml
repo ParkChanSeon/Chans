@@ -40,5 +40,5 @@
 	
 	
 	<context:component-scan base-package="kr.chans.project"/>
-
+	<context:component-scan base-package="kr.chans.common"/>
 </beans>
