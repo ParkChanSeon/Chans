@@ -1,5 +1,8 @@
 package kr.chans.main.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,21 +24,9 @@ public class MainController {
 	
 	
 	@RequestMapping("/")
-	public String mainView() {
+	public String mainView(HttpServletRequest request, HttpSession session) {
 		
 		
-		AdminPwVO param = new AdminPwVO();
-		param.setApPw("qkrckstjs1828!");
-		
-		AdminPwVO adminPwVO = commonService.adminPwCheck(param);
-		System.out.println("1");
-		if(adminPwVO != null) {
-			System.out.println("2");
-			System.out.println(adminPwVO.getApNo());
-			System.out.println(adminPwVO.getApId());
-			System.out.println(adminPwVO.getApPw());
-			
-		}
 		
 		
 		return "/main/main";

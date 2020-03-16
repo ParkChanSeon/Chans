@@ -25,9 +25,29 @@
 		select * from tb_admin
 		where 
 		admin_id = #{adminId}
-		and
-		admin_pw = #{adminPw}
+		<!-- and
+		admin_pw = #{adminPw} -->
 </select>
+
+<select id="regIdCheck"  parameterType="kr.chans.common.model.AdminVO" resultMap="adminVO">
+				
+		select admin_id 
+		from 
+		tb_admin
+		where admin_id =  #{adminId}
+				
+</select>
+
+<insert id ="regAdmin" parameterType="kr.chans.common.model.AdminVO">
+
+			insert into tb_admin (
+			admin_id, admin_pw
+			) values (
+			#{adminId}, #{adminPw}
+			);
+
+</insert>
+
 
 
 <!-- 관리자 비밀번호 확인 -->
