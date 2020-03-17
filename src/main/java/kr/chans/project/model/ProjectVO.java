@@ -7,27 +7,40 @@ package kr.chans.project.model;
 public class ProjectVO {
 
 	private String pNo; 		// 프로젝트 넘버 
-	private String pName;		// 프로젝트 이름 
+	private String pTitle;		// 프로젝트 이름 
 	private String pStartDate;	// 프로젝트 시작날짜 yyyy-MM
 	private String pEndDate;	// 프로젝트 종료시간 HH:mm 
 	private String pSummary;	// 프로젝트 요약 
 	private String pDetail;		// 프로젝트 상세 
-	private String pLogoImage;	// 프로젝트 로고 이미지
+	
 	private String pCreateDate;	// 등록 날짜
 	private String pCreateTime; // 등록 시간 
 	private String pModDate;	// 수정 날
 	private String pModTime;	// 수정 시간 
+	private String pCreateUser; // 작성자
+	private String pModUser;
+	private String pUseYn;
+	
+	
+	
+	public String getpUseYn() {
+		return pUseYn;
+	}
+	
+	public void setpUseYn(String pUseYn) {
+		this.pUseYn = pUseYn;
+	}
 	public String getpNo() {
 		return pNo;
 	}
 	public void setpNo(String pNo) {
 		this.pNo = pNo;
 	}
-	public String getpName() {
-		return pName;
+	public String getpTitle() {
+		return pTitle;
 	}
-	public void setpName(String pName) {
-		this.pName = pName;
+	public void setpTitle(String pTitle) {
+		this.pTitle = pTitle;
 	}
 	public String getpStartDate() {
 		return pStartDate;
@@ -53,12 +66,6 @@ public class ProjectVO {
 	public void setpDetail(String pDetail) {
 		this.pDetail = pDetail;
 	}
-	public String getpLogoImage() {
-		return pLogoImage;
-	}
-	public void setpLogoImage(String pLogoImage) {
-		this.pLogoImage = pLogoImage;
-	}
 	public String getpCreateDate() {
 		return pCreateDate;
 	}
@@ -83,6 +90,19 @@ public class ProjectVO {
 	public void setpModTime(String pModTime) {
 		this.pModTime = pModTime;
 	}
+	public String getpCreateUser() {
+		return pCreateUser;
+	}
+	public void setpCreateUser(String pCreateUser) {
+		this.pCreateUser = pCreateUser;
+	}
+	public String getpModUser() {
+		return pModUser;
+	}
+	public void setpModUser(String pModUser) {
+		this.pModUser = pModUser;
+	}
+	
 	
 	
 	

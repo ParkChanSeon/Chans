@@ -36,7 +36,7 @@ function loginCheck(){
  		
  		$.ajax({ 
 			type: "POST", 
-			url: "${pageContext.request.contextPath}"+"/post/admin/login", 
+			url: "${pageContext.request.contextPath}"+"/admin/login", 
 			data: {"id" : id,
 				   "pw" : pw
 					}, 
@@ -45,12 +45,12 @@ function loginCheck(){
 			success: function(jRes){
 				
 				var result = jRes;
-				console.log(JSON.stringify(result))
+				//console.log(JSON.stringify(result))
 				
 				if(result.success == "Y"){
 					
 					alert("로그인 성공!");
-					window.location.href= "${pageContext.request.contextPath}"
+					window.location.href= "${pageContext.request.contextPath}";
 					
 					
 				
@@ -160,7 +160,7 @@ function regBtn02Click(){
 		
 		$.ajax({ 
 			type: "POST", 
-			url: "${pageContext.request.contextPath}"+"/post/registration/admin", 
+			url: "${pageContext.request.contextPath}"+"/admin/registration", 
 			data: {"regId" : regId,
 				   "regPw" : regPw,
 				   "confirmPw" : confirmPw
@@ -246,16 +246,17 @@ function logOutBtnClick(){
 				
 			if(jRes.success == "Y"){
 				console.log(JSON.stringify(jRes))
-				if(jRes.resData.result == "1"){
+				if(jRes.result == "1"){
 				alert("로그아웃 성공!!");
 				
-				loginUserId = "";
+				/* loginUserId = "";
 				loginDiv = false;
 				
 				$(".logOutDiv").css("display","none");
 				$(".loginDiv").css("display","inline-block");
 				$(".regDiv").css("display","none");
-				
+				 */
+				window.location.href= "${pageContext.request.contextPath}"
 				}
 				
 			}

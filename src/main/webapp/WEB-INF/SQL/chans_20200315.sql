@@ -38,27 +38,38 @@ use pro2sen;
 
 drop table test;
 
+drop table projects;
 
 -- projects 테이블 
 create table projects(
 
 p_no int auto_increment primary key,
-p_name varchar(50) not null,
+p_title varchar(50) not null,
 p_start_date varchar(10) not null,
 p_end_date varchar(10) not null,
 p_summary varchar(100) not null,
 p_detail text not null,
-p_logo_image varchar(200) not null,
+
 
 p_create_date varchar(10) not null,
 p_create_time varchar(10) not null,
 
 p_mod_date varchar(10),
-p_mod_time varchar(10)
+p_mod_time varchar(10),
 
+p_create_user varchar(20) not null,
+p_mod_user varchar(20),
+p_use_yn varchar(10) default 'Y' not null
 );
 
+select * from projects;
 
+
+select p_no, p_title, p_start_date, p_end_date, p_create_date, p_create_time, p_use_yn
+from projects;
+
+
+select * from images;
 
 drop table images;
 -- 이미지 첨부 파일 테이블
@@ -74,6 +85,8 @@ i_create_date varchar(10) not null,
 i_create_time varchar(10) not null,
 i_mod_date varchar(10) ,
 i_mod_time varchar(10) ,
+i_type varchar(10),
+i_path varchar(300) not null,
 
 foreign key (i_project_no) references projects (p_no) 
 );
@@ -167,5 +180,16 @@ select * from tb_admin_password;
 
 
 drop table tb_admin_password;
+
+
+use pro2sen;
+
+select * from projects;
+
+
+select * from images;
+
+
+select i_project_no, i_name, i_type, i_path from images where i_type='logo';
 
 
