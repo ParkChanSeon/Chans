@@ -71,5 +71,5 @@ public class ProjectDao {
 		
 		return sqlSession.update(strNameSpace + ".updateUseYn",param);
 	
-	
+	}
 }
