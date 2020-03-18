@@ -72,6 +72,7 @@ html, body {
 <th style="width:143px; " class= "lastT">사용유무</th>
 </tr>
 
+<<<<<<< HEAD
 <c:forEach items="${projectList}" var ="list">
 <tr >
 <td>${list.pNo}</td>
@@ -92,6 +93,80 @@ html, body {
 	</c:if>
 </select>
 </td>
+=======
+<!-- <tr >
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td class= "lastT">5</td>
+</tr>
+
+<tr >
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td class= "lastT">5</td>
+</tr>
+
+<tr >
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td class= "lastT">5</td>
+</tr>
+
+<tr >
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td class= "lastT">5</td>
+</tr>
+
+
+<tr >
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td class= "lastT">5</td>
+</tr>
+
+<tr >
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td class= "lastT">5</td>
+</tr>
+
+<tr >
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td class= "lastT">5</td>
+</tr>
+
+<tr >
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td class= "lastT">5</td>
+</tr>
+ -->
+<c:forEach items="${projectList}" var ="list">
+<tr >
+<td>${list.pNo}</td>
+<td><div class="pTitleDiv" onclick="openProjectPopup('${list.pNo}')">${list.pTitle}</div></td>
+<td>${list.pStartDate}~${list.pEndDate}</td>
+<td class="uploadDate">${list.pCreateDate} ${list.pCreateTime}</td>
+<td class= "lastT">${list.pUseYn}</td>
+>>>>>>> refs/remotes/origin/master
 </tr>
 </c:forEach>
 

@@ -129,6 +129,7 @@ i_type= #{iType}
 
 <!-- 로고 정보들 가져오기 -->
 <select id ="selectLogoList" resultMap="imageMap">
+<<<<<<< HEAD
 <!-- select i_project_no, i_name, i_type, i_path from images where i_type='logo'
  -->
 
@@ -151,6 +152,10 @@ i_type= #{iType}
  p_no = #{pNo}
 
 </update>
+=======
+select i_project_no, i_name, i_type, i_path from images where i_type='logo'
+</select>
+>>>>>>> refs/remotes/origin/master
 
 
 </mapper>

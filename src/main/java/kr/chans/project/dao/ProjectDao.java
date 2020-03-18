@@ -70,6 +70,6 @@ public class ProjectDao {
 	public Integer updateUseYn(ProjectVO param) {
 		
 		return sqlSession.update(strNameSpace + ".updateUseYn",param);
-	}
+	
 	
 }

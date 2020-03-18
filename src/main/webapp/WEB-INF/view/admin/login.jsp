@@ -246,7 +246,7 @@ function logOutBtnClick(){
 				
 			if(jRes.success == "Y"){
 				console.log(JSON.stringify(jRes))
-				if(jRes.resData.result == "1"){
+				if(jRes.result == "1"){
 				alert("로그아웃 성공!!");
 				
 				/* loginUserId = "";
@@ -256,8 +256,8 @@ function logOutBtnClick(){
 				$(".loginDiv").css("display","inline-block");
 				$(".regDiv").css("display","none"); */
 				
-				window.location.href= "${pageContext.request.contextPath}";
-				
+				 */
+				window.location.href= "${pageContext.request.contextPath}"
 				}
 				
 			}
