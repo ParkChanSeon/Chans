@@ -30,7 +30,17 @@ public class CommonController {
     PasswordEncoder passwordEncoder;
 	
 	
-	@RequestMapping(value="/post/admin/login" ,method = RequestMethod.POST)
+
+	
+	@RequestMapping(value="/admin/login", method=RequestMethod.GET)
+	public String adminPage(HttpServletRequest request) {
+		System.out.println("!!!");
+		
+		return "/admin/login";
+	}
+	
+	
+	@RequestMapping(value="/admin/login" ,method = RequestMethod.POST)
 	public @ResponseBody AJaxResVO adminLogin(HttpServletRequest request) {
 		AJaxResVO jRes = new AJaxResVO();
 		
@@ -50,9 +60,9 @@ public class CommonController {
 			if(resultVO != null) {
 				
 				boolean match = passwordEncoder.matches(pw, resultVO.getAdminPw());
-			System.out.println("match : " + match);
+			// System.out.println("match : " + match);
 				if(match) {
-					
+					resultVO.setAdminPw("");
 					jRes.setSuccess(AJaxResVO.SUCCESS_Y);
 					jRes.addAttribute("loginUser",resultVO);
 					
@@ -102,7 +112,7 @@ public class CommonController {
 		AJaxResVO jRes = new AJaxResVO();
 			
 		
-			// session.invalidate();
+			session.invalidate();
 			System.out.println("session.invalidate()");
 			
 			jRes.setResult("1");
@@ -112,7 +122,7 @@ public class CommonController {
 	}
 	
 	
-	@RequestMapping(value="/post/registration/admin",method = RequestMethod.POST)
+	@RequestMapping(value="/admin/registration",method = RequestMethod.POST)
 	public @ResponseBody AJaxResVO regAdmin (HttpServletRequest request) {
 		
 		AJaxResVO jRes = new AJaxResVO();
