@@ -50,7 +50,7 @@ function loginCheck(){
 				if(result.success == "Y"){
 					
 					alert("로그인 성공!");
-					window.location.href= "${pageContext.request.contextPath}"
+					window.location.href= "${pageContext.request.contextPath}";
 					
 					
 				
@@ -249,12 +249,14 @@ function logOutBtnClick(){
 				if(jRes.resData.result == "1"){
 				alert("로그아웃 성공!!");
 				
-				loginUserId = "";
+				/* loginUserId = "";
 				loginDiv = false;
 				
 				$(".logOutDiv").css("display","none");
 				$(".loginDiv").css("display","inline-block");
-				$(".regDiv").css("display","none");
+				$(".regDiv").css("display","none"); */
+				
+				window.location.href= "${pageContext.request.contextPath}";
 				
 				}
 				

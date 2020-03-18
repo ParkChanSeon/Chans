@@ -1,10 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
 <!DOCTYPE html>
 <html>
 
 <!-- Scripts -->
+<script>
+var loginUserId = "${sessionScope.loginUser.adminId}";
+
+var contextPath = "${pageContext.request.contextPath}";
+
+var musicPlay;
+var modal;
+var modal02;
+var playNow;	
+
+</script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.scrollex.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/skel.min.js"></script>
@@ -12,15 +24,9 @@
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/m_popup.js"></script>
 
+<script src="${pageContext.request.contextPath}/resources/js/main/main_project.js"></script>
 <script>
 
-var loginUserId = "${sessionScope.loginUser.adminId}";
-
-
-var musicPlay;
-var modal;
-var modal02;
-var playNow;	
 $(document).ready(function(){
 		
 		
@@ -58,36 +64,22 @@ $(document).ready(function(){
 		
 		btnClickEvent();
 		
-		
-		
-		 
 		 
 });
+
 
 
 function btnClickEvent(){
 	
 	
-	$( "#cretecBtn" ).click(function() {
+	/* $( "#cretecBtn" ).click(function() {
 		
 		modal02 = document.querySelector(".modal02"); 
 		modal02.classList.toggle("show-modal"); 
 			
 		
-		});
+		}); */
 	
-	$( "#namyangBtn" ).click(function() {
-
-		alert("namyangBtn")
-		
-	});
-	
-	$( "#samyangBtn" ).click(function() {
-
-		alert("samyangBtn")
-		
-		
-	});
 	
 	$( "#closeBtn" ).click(function() {
 
@@ -131,6 +123,12 @@ function imgPopupOpen(url){
 	  OpenWindow.document.write("<style>body{margin:0px;}</style><img src='"+url+"' width='"+win_width+"'>");
 	 }	
 
+
+function projectManager(){
+	var url = "${pageContext.request.contextPath}"+"/admin/projectManager";
+	var OpenWindow=window.open(url,'_blank',  'menubars=no, scrollbars=auto');
+	
+}
 	
 	</script>
 
@@ -479,12 +477,28 @@ function imgPopupOpen(url){
 
 
 
-<!-- Three -->
+<!-- Three 프로젝트 로고 이미지 -->
 			<section id="three" class="wrapper style2">
 				<div class="inner">
-					
+					<c:if test="${loginUser.adminId ne null}">
+					<div class = "projectManagerDiv" style="float: left;">
+						<button onclick="projectManager()">프로젝트 관리</button>
+					</div>
+					</c:if>
 					<div class="gallery">
+						
+						<c:forEach items="${logoList}" var ="list">
 						<div>
+							<div class="image fit" id ="cretecBtn" onclick="projectPopupOpen('${list.iProjectNo}')">
+							<img src="<spring:url value="/imageFile/"/><c:out value="${list.iPath}${list.iName}" />" alt="" />
+							
+							</div>
+						</div>
+						
+						</c:forEach>
+						
+						
+						<%-- <div>
 							<div class="image fit" id ="cretecBtn">
 							<img src="${pageContext.request.contextPath}/resources/images/logo/cretec.gif" alt="" />
 							
@@ -502,7 +516,7 @@ function imgPopupOpen(url){
 									
 							</div>
 						</div>
-						
+						 --%>
 					</div>
 				</div>
 			</section>
@@ -576,22 +590,50 @@ function imgPopupOpen(url){
              	
              	
              	<div id ="detailDiv" class="title">
-             	
-             	 <!-- 전체 wrap 감싸안으며 -->
+             	<!-- 20200317 -->
+<div class="sliderDiv">             	
+<div class="slideshow-container">
 
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img class ="projectImg" src="${pageContext.request.contextPath}/resources/images/cretec/cretec01.jpg"
+             				onclick="imgPopupOpen(this.src)">
+  
+</div>
 
-             	<div style="display: inline-block;">
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="http://placehold.it/300x100" style="width:100%">
+  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="http://placehold.it/300x100" style="width:100%">
+  
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<!-- <br> -->
+
+<div class="dotDiv" style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)" id = "firstDot"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+</div>    	
              	
-             	
-             	<div id ="preDiv"> <span id="preSpan"></span>  </div>
-             
-             	
-             	<img id ="projectImg" src="${pageContext.request.contextPath}/resources/images/cretec/cretec01.jpg"
-             	onclick="imgPopupOpen(this.src)"> 
-             		
-             	<div id ="nextDiv"><span id="nextSpan"></span> </div>
-             	
-             	</div>
+             	<!-- END -->
+             		 <!-- 전체 wrap 감싸안으며 -->
+             		<%-- <div class="slider">
+   					 <div><img class ="projectImg" src="${pageContext.request.contextPath}/resources/images/cretec/cretec01.jpg"
+             				onclick="imgPopupOpen(this.src)"> </div>
+    				<div><img class ="projectImg"id="projectImg_0" src="${pageContext.request.contextPath}/resources/images/cretec/cretec01.jpg"
+             				onclick="imgPopupOpen(this.src)"> </div>
+  					</div> --%>
              		
              	<div id="contents" class="title">
              	

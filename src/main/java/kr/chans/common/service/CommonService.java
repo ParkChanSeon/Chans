@@ -11,7 +11,7 @@ import kr.chans.common.model.AdminVO;
 public class CommonService {
 
 	@Autowired
-	CommonDao commonDao;
+	private CommonDao commonDao;
 	
 	
 	public AdminPwVO adminPwCheck(AdminPwVO param) {

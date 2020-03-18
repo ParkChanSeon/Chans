@@ -13,9 +13,23 @@ public class ImageVO {
 	private String iCreateTime;
 	private String iModDate;
 	private String iModTime;
+	private String iType;
+	private String iPath;
 	
 	
 	
+	public String getiPath() {
+		return iPath;
+	}
+	public void setiPath(String iPath) {
+		this.iPath = iPath;
+	}
+	public String getiType() {
+		return iType;
+	}
+	public void setiType(String iType) {
+		this.iType = iType;
+	}
 	public String getiNo() {
 		return iNo;
 	}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.chans.ProjectMapper">
+
+<resultMap type="kr.chans.project.model.ProjectVO" id="projectMap">
+	<result property="pNo" column="p_no"/>
+	<result property="pTitle" column="p_title"/>
+	<result property="pStartDate" column="p_start_date"/>
+	<result property="pEndDate" column="p_end_date"/>
+	<result property="pSummary" column="p_summary"/>
+	<result property="pDetail" column="p_detail"/>
+	<result property="pCreateDate" column="p_create_date"/>
+	<result property="pCreateTime" column="p_create_time"/>
+	<result property="pModDate" column="p_mod_date"/>
+	<result property="pModTime" column="p_mod_time"/>
+	<result property="pCreateUser" column="p_create_user"/>
+	<result property="pModUser" column="p_mod_user"/>
+	<result property="pUseYn" column="p_use_yn"/>
+
+</resultMap>
+
+<resultMap type="kr.chans.project.model.ImageVO" id="imageMap">
+	<result property="iNo" column="i_no"/>
+	<result property="iProjectNo" column="i_project_no"/>
+	<result property="iRealName" column="i_real_name"/>
+	<result property="iExtension" column="i_extension"/>
+	<result property="iSize" column="i_size"/>
+	<result property="iName" column="i_name"/>
+	<result property="iCreateDate" column="i_create_date"/>
+	<result property="iCreateTime" column="i_create_time"/>
+	<result property="iModDate" column="i_mod_date"/>
+	<result property="iModTime" column="i_mod_time"/>
+	<result property="iType" column="i_type"/>
+	<result property="iPath" column="i_path"/>
+
+
+</resultMap>
+
+
+
+<insert id ="saveImage" parameterType="kr.chans.project.model.ImageVO" >
+
+			insert into images (
+			i_project_no, 
+			i_real_name, 
+			i_extension, 
+			i_size, 
+			i_name, 
+			i_create_date, 
+			i_create_time,
+			i_type,
+			i_path
+			
+			) values (
+			#{iProjectNo},
+			#{iRealName},
+			#{iExtension},
+			#{iSize},
+			#{iName},
+			#{iCreateDate},
+			#{iCreateTime},
+			#{iType},
+			#{iPath}
+			);
+
+</insert>
+
+
+
+<insert id ="saveProject" parameterType="kr.chans.project.model.ProjectVO" 
+	keyProperty="pNo" keyColumn="p_no" useGeneratedKeys="true">
+
+			insert into projects (
+			p_title, 
+			p_start_date, 
+			p_end_date, 
+			p_summary, 
+			p_detail,
+			p_create_date, 
+			p_create_time, 
+			p_create_user
+			) values (
+			#{pTitle},
+			#{pStartDate},
+			#{pEndDate},
+			#{pSummary},
+			#{pDetail},
+			#{pCreateDate},
+			#{pCreateTime},
+			#{pCreateUser}
+			);
+
+</insert>
+
+
+
+<!-- 프로젝트 매니저 화면에서 뿌려줄 리스트 -->
+
+<select id = "selectProjectList" resultMap="projectMap" >
+
+select p_no, p_title, p_start_date, p_end_date, p_create_date, p_create_time, p_use_yn
+from projects
+
+</select>
+
+<!--  프로젝트 정보 가져오기 -->
+<select id = "selectProjectOne" resultMap="projectMap"  parameterType="kr.chans.project.model.ProjectVO">
+
+select * 
+from projects
+where
+p_no = #{pNo}
+
+</select>
+<!--  이미지 정보 가져오기 -->
+<select id = "selectImageList" resultMap="imageMap" parameterType="kr.chans.project.model.ImageVO">
+
+select * 
+from images
+where
+i_project_no = #{iProjectNo}
+<if test="iType != null and iType !=''">
+and
+i_type= #{iType}
+</if>
+</select>
+
+<!-- 로고 정보들 가져오기 -->
+<select id ="selectLogoList" resultMap="imageMap">
+select i_project_no, i_name, i_type, i_path from images where i_type='logo'
+</select>
+
+
+</mapper>
