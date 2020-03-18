@@ -112,5 +112,11 @@ public class MainController {
 		return jRes;
 	}
 	
+	@RequestMapping(value="/test")
+	public String test() {
 	
+		
+		
+		return "/error/404";
+	}
 }

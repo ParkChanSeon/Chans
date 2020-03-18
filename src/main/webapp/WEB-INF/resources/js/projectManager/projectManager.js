@@ -80,6 +80,56 @@ function openProjectPopup(pNo){
 	alert(pNo + "click")
 }
 
+
+// 사용유무 변경 YN
+function changeYn(pNo,val){
+	 
+	// alert("pNo : " + pNo +"\nvalue : "+ val)
+	var pNo = pNo;
+	var pUseYn = val;
+	/*
+	 * 	put 요청의 경우 
+	 *  ajax 
+	 *  contentType :"application/json"
+	 *  JSON.stringify() 필수 
+	 *  controller에서는 @RequestBody로 받아야한다.
+	 *  request.parameter("")는 get,pos에서만 사용가
+	 */
+	$.ajax({ 
+		type: "PUT", 
+		url: contextPath +"/admin/projects/use", 
+		contentType: "application/json",
+		data: JSON.stringify({"pNo":pNo,"pUseYn":pUseYn}), 
+		
+		dataType : "json",
+		success: function(jRes){
+			
+			var result = jRes;
+			console.log(JSON.stringify(result))
+			
+			if(result.success == "Y"){
+				
+				alert("프로젝트 사용유무가 변경되었습니다.");
+				
+			}else{
+				
+				alert(result.result);
+				
+			}
+			
+			
+			
+			
+		}
+			
+		});
+	
+	
+	
+}
+
+
+
 $(document).ready(function(){
 
 	$("#saveBtn").click(function(event){

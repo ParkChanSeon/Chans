@@ -36,7 +36,7 @@ function loginCheck(){
  		
  		$.ajax({ 
 			type: "POST", 
-			url: "${pageContext.request.contextPath}"+"/post/admin/login", 
+			url: "${pageContext.request.contextPath}"+"/admin/login", 
 			data: {"id" : id,
 				   "pw" : pw
 					}, 
@@ -160,7 +160,7 @@ function regBtn02Click(){
 		
 		$.ajax({ 
 			type: "POST", 
-			url: "${pageContext.request.contextPath}"+"/post/registration/admin", 
+			url: "${pageContext.request.contextPath}"+"/admin/registration", 
 			data: {"regId" : regId,
 				   "regPw" : regPw,
 				   "confirmPw" : confirmPw
