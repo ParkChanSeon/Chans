@@ -21,7 +21,7 @@ function makeSlide(imageList){
 		var finalPath = contextPath +'/imageFile' + srcPath;
 		
 		imageList[i].iPath = path.replace(/\\/g, "/");
-		console.log(path)
+		// console.log(path)
 		
 		 strSlider += '<div class="mySlides fade">';
 		 strSlider += '<div class="numbertext">'+(i+1)+' / '+(size)+'</div>';
@@ -71,7 +71,7 @@ function projectPopupOpen(pNo){
 		success: function(jRes){
 			
 			var result = jRes;
-			console.log(JSON.stringify(result))
+			//console.log(JSON.stringify(result))
 			
 			if(result.success == "Y"){
 				
@@ -136,6 +136,9 @@ function showSlides(n) {
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace("active", "");
   }
+  
+  
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
+  
 }

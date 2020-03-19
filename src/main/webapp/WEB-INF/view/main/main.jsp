@@ -217,6 +217,11 @@ function projectManager(){
      
      }
      
+     .projectDetailFont{
+     font-family: 'Noto Sans KR', sans-serif;
+     font-size: initial;
+     }
+     
       .projectTitle{
      font-family: 'Sunflower', sans-serif;
      
@@ -335,7 +340,12 @@ function projectManager(){
 		<title>Chans Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		 <!-- favicon 추가 -->
+		 <link rel="icon" type="image/png"  href="${pageContext.request.contextPath}/resources/images/favicon/favicon.ico"/>
+		<!-- 구글폰트 -->
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+		
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
 	</head>
 
@@ -343,6 +353,7 @@ function projectManager(){
 
 
 	<body>
+	
 
 		<!-- Header -->
 			<header id="header" class="alt">
@@ -386,9 +397,9 @@ function projectManager(){
 					<img src="${pageContext.request.contextPath}/resources/images/main_04.jpg"  alt="" />
 					<div class="inner">
 						<header class="title">
-							<p>I LOVE YOU♥</p>
+							<p>I want to make it with you.</p>
 							<br/>
-							<h3 >강인애 사랑해!! </h3>
+							<h3>같이 가치있게 만들고 싶어요.</h3>
 						</header>
 					</div>
 				</article>
@@ -397,10 +408,10 @@ function projectManager(){
 				<article>
 					<img src="${pageContext.request.contextPath}/resources/images/main_02.jpg" alt="" />
 					<div class="inner">
-						<header class = "sliderTitle title" style="width: 434.69px;">
+						<header class = "sliderTitle title" style="">
 							<p id ="careerP" style="font-size: 2rem !important;">my career.</p>
 							
-							<div id = "careerDiv" style="display:none;top:50%; left:50%;">
+							<div id = "careerDiv" style="display:none;top:50%; left:50%; text-align: left;">
 							
 							<h4 class="career">2013.01 디큐브시티 짐보리 입사</h4>
 							<br/>
@@ -417,7 +428,7 @@ function projectManager(){
 				<article>
 					<img src="${pageContext.request.contextPath}/resources/images/main_03.jpg"  alt="" />
 					<div class="inner">
-						<header class = "sliderTitle title" style="width: 434.69px;" >
+						<header class = "sliderTitle title" style="" >
 							<p id ="skillsP" style="font-size: 2rem !important;">my skills.</p>
 							
 							
@@ -428,8 +439,8 @@ function projectManager(){
 							<span class="skills">Javascript,jQuery</span> <span class="grade">40%</span>
 							<br/>
 							
-							<span class="skills">Java</span> <span class="grade">40%</span>
-							&nbsp;
+							<span class="skills">Java,Spring</span> <span class="grade">40%</span>
+							<br/>
 							<span class="skills">Cordova</span><span class="grade">20%</span>
 							&nbsp;
 							<span class="skills">DHTMLX</span><span class="grade">40%</span>
@@ -460,6 +471,61 @@ function projectManager(){
 					</div>
 				</article> --%>
 			</section>
+			
+			
+			
+			
+<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>The reason why I chose developer as my job.</p>
+						<h2>LIKE MAGICIAN..</h2>
+					</header>
+				</div>
+			</section>
+
+
+	
+	<section id="three" class="wrapper style2">
+				<div class="inner">
+				
+				<div class="myIntroduce" >
+				
+				<span class="title ">
+				
+				저는 ＜디큐브시티 짐보리＞에서 <br/><br/>
+				영유아 놀이교사(센터장)로 5년을 근무하였습니다. <br/><br/>
+				
+				아이들도 좋아하고 일도 적성에 잘 맞았지만, <br/><br/>
+				남자 교사라는 현실적인 한계점을 맞이하게 되었습니다. <br/><br/>
+				
+				이직을 결심하고 무엇인가를 만드는 기술을 배우고 싶다는 생각이 들었습니다. <br/><br/>
+				
+				사람들이 가장 많이 접하고 사용하는 웹과 앱을 만드는 방법이 궁금해졌습니다. <br/><br/>
+				.<br/><br/>
+				.<br/><br/>
+				
+				<span class="st">"이건 어떻게 만들었을까?"</span><br/><br/>
+				
+				.<br/><br/>
+				.<br/><br/>
+				
+				생각하는 것을 구현해 내는 개발자들이 <br/><br/><span class="st">마법사</span> 같다는 생각이 들었고,<br/><br/>
+				심혈을 기울여 기능들을 구현해 내는 모습이<br/><br/> 장인 같다는 생각이 들었습니다. <br/><br/>
+				마법사같은 개발자가 되는길은 많이 어렵고 험난하지만..<br/><br/>
+				오늘도 저는 장인 정신을 가진 마법사와 같은 <br/><br/>
+				<span class="st">개발자</span>가 되기 위해  도전하고있습니다.
+				
+				</span>
+				
+				</div>
+				
+				</div>
+				</section>
+			
+			
+			
+			
 			<!-- Two -->
 			<section id="two" class="wrapper style3">
 				<div class="inner">
@@ -468,7 +534,7 @@ function projectManager(){
 						<h2>2019.05 ~ </h2>
 						 -->
 						 
-						 <p>Since May 2019,</p>
+						 <p>These are the projects that I participated in.</p>
 						<h2>PROJECTS.</h2>
 						 
 					</header>
@@ -477,7 +543,8 @@ function projectManager(){
 
 
 
-<!-- Three 프로젝트 로고 이미지 -->
+
+		<!-- Three 프로젝트 로고 이미지 -->
 			<section id="three" class="wrapper style2">
 				<div class="inner">
 					<c:if test="${loginUser.adminId ne null}">
@@ -522,37 +589,29 @@ function projectManager(){
 			</section>
 
 
-<section id="two" class="wrapper style3">
-				<div class="inner">
-					<header class="align-center">
-						<p></p>
-						<h2>각오</h2>
-					</header>
-				</div>
-			</section>
-
-
-	<section id="five" class="wrapper style5">
-				<div class="inner">
-					
-					
-				</div>
-			</section>
-
 
 
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
-					<ul class="icons">
+					<!-- <ul class="icons">
 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
+						
+					</ul> -->
+					<div class="iconsDiv">
+					<a href="mailto:pro2sen@gmail.com" class="icon title"><span class="mail"></span ><span class="iconContent">pro2sen@gmail.com</span></a>
+					<a href="tel:82-10-8613-5267"  class="icon title" ><span class="phone"></span><span class="iconContent">82-10-8613-5267</span></a>
+					</div>
+					
+					
 				</div>
+				
+				
 				<div class="copyright">
-					&copy; Untitled. All rights reserved.
+					&copy; Hielo by TEMPLATED. All rights reserved.
 				</div>
 			</footer>
 
@@ -567,7 +626,7 @@ function projectManager(){
              	박찬선입니다.<br/>
              	방문해 주셔서 감사합니다.</h1> 
              	
-             	<div id="start"><span>시작</span></div>
+             	<div id="start"><span>Enter</span></div>
             
          </div> 
      </div>
@@ -635,25 +694,15 @@ function projectManager(){
              				onclick="imgPopupOpen(this.src)"> </div>
   					</div> --%>
              		
-             	<div id="contents" class="title">
+             	<div id="contents" class="projectDetailFont">
              	
-             	-	인원 : 2명<br/>
-				-	본인 개발 :<br/> 
-					고객사 ERP 연동 로그인 기능 <br/>
-					상담 이력 저장(파일 업로드) 및 조회 기능<br/>
-					ERP 연동 조회 기능<br/>
-					쪽지 기능<br/>
-					SMS 발송 및 멘트 관리 기능<br/>
-					전화번호부 기능<br/>
-					소프트폰 연동<br/>
-					전광판 작업<br/>
              	
              	</div>
              	
              	
              	</div>
              	
-             	<div id="closeBtn"><span>닫기</span></div>
+             	<div id="closeBtn"><span>Close</span></div>
              	
           
           

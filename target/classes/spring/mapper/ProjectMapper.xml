@@ -34,7 +34,7 @@
 	<result property="iModTime" column="i_mod_time"/>
 	<result property="iType" column="i_type"/>
 	<result property="iPath" column="i_path"/>
-
+	<result property="iUseYn" column="i_use_yn"/>
 
 </resultMap>
 
@@ -125,6 +125,8 @@ i_project_no = #{iProjectNo}
 and
 i_type= #{iType}
 </if>
+and
+i_use_yn=#{iUseYn}
 </select>
 
 <!-- 로고 정보들 가져오기 -->
@@ -137,7 +139,7 @@ i_type= #{iType}
  from images a 
  left outer join projects b
  on a.i_project_no = b.p_no 
- where a.i_type='logo' and b.p_use_yn = 'Y' ; 
+ where a.i_type='logo' and b.p_use_yn = 'Y' and a.i_use_yn ='Y'
  
  </select>
 

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -129,7 +130,7 @@ public class ProjectManagerController {
         List<MultipartFile> pImageFiles = mtfRequest.getFiles("pImageFiles[]");
        
         
-        String path = "\\upload\\logo\\";
+        String path = "upload/";
         
         
      // 로고 파일 업로드
@@ -138,12 +139,16 @@ public class ProjectManagerController {
 		if( !dir.exists() )
 			dir.mkdirs();
 		
+		
+		
 		Random random = new Random();
 		
 	
 			String originFileName = pLogoFile.getOriginalFilename(); // 원본 파일 명
 			String fileName = "logo_" + random.nextLong() + originFileName.substring(originFileName.indexOf("."));
 			String iExtension = originFileName.substring(originFileName.lastIndexOf("."), originFileName.length());
+			
+			
 			
 			File f = new File(dir, fileName);
 			
@@ -159,7 +164,7 @@ public class ProjectManagerController {
 				logoParam.setiType("logo");
 				logoParam.setiCreateDate(param.getpCreateDate());
 				logoParam.setiCreateTime(param.getpCreateTime());
-				logoParam.setiPath(path);
+				logoParam.setiPath("/upload/");
 				logoParam.setiName(fileName);
 				logoParam.setiRealName(originFileName);
 				logoParam.setiExtension(iExtension);
@@ -171,8 +176,11 @@ public class ProjectManagerController {
 				
 			} catch (Exception e) {	
 				System.out.println("files upload EXCEPTION !!");
-				e.printStackTrace();
 				
+				jRes.setResult("files upload EXCEPTION");
+				jRes.setSuccess(AJaxResVO.SUCCESS_N);
+				e.printStackTrace();
+				return jRes;
 				
 			}
 	        
@@ -181,9 +189,7 @@ public class ProjectManagerController {
         
         
         // 이미지 파일들 업로드
-		path = "\\upload\\image\\";	
-			
-        dir = new File(path);
+		dir = new File(path);
 		
 		if( !dir.exists() )
 			dir.mkdirs();
@@ -209,7 +215,7 @@ public class ProjectManagerController {
 				imageParam.setiType("image");
 				imageParam.setiCreateDate(param.getpCreateDate());
 				imageParam.setiCreateTime(param.getpCreateTime());
-				imageParam.setiPath(path);
+				imageParam.setiPath("/upload/");
 				imageParam.setiName(fileName);
 				imageParam.setiRealName(originFileName);
 				imageParam.setiExtension(iExtension);
@@ -219,9 +225,11 @@ public class ProjectManagerController {
 				projectService.saveImage(imageParam);
 				
 			} catch (Exception e) {	
+				jRes.setResult("files upload EXCEPTION 2");
+				jRes.setSuccess(AJaxResVO.SUCCESS_N);
 				System.out.println("files upload EXCEPTION !!");
 				e.printStackTrace();
-				
+				return jRes;
 				
 			}
 	        

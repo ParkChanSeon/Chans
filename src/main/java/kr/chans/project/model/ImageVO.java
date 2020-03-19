@@ -15,9 +15,16 @@ public class ImageVO {
 	private String iModTime;
 	private String iType;
 	private String iPath;
+	private String iUseYn;
 	
 	
 	
+	public String getiUseYn() {
+		return iUseYn;
+	}
+	public void setiUseYn(String iUseYn) {
+		this.iUseYn = iUseYn;
+	}
 	public String getiPath() {
 		return iPath;
 	}

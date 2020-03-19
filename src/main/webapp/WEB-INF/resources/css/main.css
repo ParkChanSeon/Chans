@@ -4622,4 +4622,48 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
+.iconContent{
+float:left;
+display:inline-block;
+padding-top:10px;
+margin-left:10px;
+}
+.mail{
+	float:left;
+	width: 40px;
+    height: 40px;
+    background-image: url(../images/icon/mail01.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: contain;
+}
 
+.phone{
+	float:left;
+	width: 40px;
+    height: 40px;
+	background-image: url("../images/icon/phone01.png");
+	 background-position: left;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: contain;
+}
+
+.iconsDiv{
+	display:inline-block;
+	
+}
+
+.icon{
+	display:flex;	
+}
+
+.myIntroduce{
+	color:black;
+}
+
+.st{
+	font-size: 25px;
+    text-decoration: underline;
+}

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>페이지를 찾을 수 없습니다.</title>
+<title>서버 동작 중에 에러가 발생하였습니다. </title>
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
 		
 <style>
@@ -139,11 +139,11 @@ a { color: white; display: inline; }
 </head>
 <body>
 <div id = "error">Error</div>
-<div class="error-num">404</div>
-<div class="error-num__clip">404</div>
+<div class="error-num">500</div>
+<div class="error-num__clip">500</div>
 
-<p id ="desc">	요청하신 페이지를 찾을 수 없습니다.</p>
-<p>Let me help you find <a href='${pageContext.request.contextPath}' >a way out.</a> 
+<p id ="desc">	서버 동작 중에 에러가 발생하였습니다 :(</p>
+<p>Let me help you find <a href='${pageContext.request.contextPath}'>a way out.</a> 
 </p>
  
 

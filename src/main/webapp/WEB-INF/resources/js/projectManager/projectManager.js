@@ -138,7 +138,7 @@ $(document).ready(function(){
 	    
 	    
 	 if(formCheck()){
-	    alert("들어옴")
+	   //  alert("들어옴")
 	 var form = $('#saveProject')[0];
 
 	    // Create an FormData object 
@@ -157,6 +157,10 @@ $(document).ready(function(){
             cache: false,
             timeout: 600000,
             success: function (jRes) {
+            	
+            	var result = jRes.result;
+            	var success = jRes.success;
+            	if(success =="Y"){
             	alert("complete");
                 $("#btnSubmit").prop("disabled", false);
                 
@@ -176,7 +180,10 @@ $(document).ready(function(){
                 
             	// 리로드 
             	window.location.reload();
-            	
+            	} else {
+            		
+            		alert(JSON.stringify(jRes))
+            	}
             },
             error: function (e) {
                 console.log("ERROR : ", e);

@@ -1,5 +1,6 @@
 package kr.chans.main.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,8 +43,7 @@ public class MainController {
 			
 			request.setAttribute("logoList",logoList);
 			
-			
-			
+			 	
 			
 		}catch(Exception e){
 			
@@ -113,11 +113,26 @@ public class MainController {
 	}
 	
 
-	@RequestMapping(value="/test")
-	public String test() {
+	@RequestMapping(value="/error404")
+	public String error404() {
 	
 		
 		
 		return "/error/404";
+	}
+	
+	@RequestMapping(value="/error500")
+	public String error500() {
+	
+		
+		
+		return "/error/500";
+	}
+	
+	
+	@RequestMapping(value="/favicon.ico")
+	public String favicon() {
+		
+		return "forward:/resources/images/favicon/favicon.ico";
 	}
 }

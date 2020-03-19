@@ -255,8 +255,7 @@ function logOutBtnClick(){
 				$(".logOutDiv").css("display","none");
 				$(".loginDiv").css("display","inline-block");
 				$(".regDiv").css("display","none"); */
-				
-				 */
+								
 				window.location.href= "${pageContext.request.contextPath}"
 				}
 				
