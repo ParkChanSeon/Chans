@@ -72,78 +72,27 @@ html, body {
 <th style="width:143px; " class= "lastT">사용유무</th>
 </tr>
 
-<!-- <tr >
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td class= "lastT">5</td>
-</tr>
-
-<tr >
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td class= "lastT">5</td>
-</tr>
-
-<tr >
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td class= "lastT">5</td>
-</tr>
-
-<tr >
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td class= "lastT">5</td>
-</tr>
-
-
-<tr >
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td class= "lastT">5</td>
-</tr>
-
-<tr >
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td class= "lastT">5</td>
-</tr>
-
-<tr >
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td class= "lastT">5</td>
-</tr>
-
-<tr >
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td class= "lastT">5</td>
-</tr>
- -->
 <c:forEach items="${projectList}" var ="list">
 <tr >
 <td>${list.pNo}</td>
-<td><div class="pTitleDiv" onclick="openProjectPopup('${list.pNo}')">${list.pTitle}</div></td>
+<td><div class="pTitleDiv" onclick="openProjectPopup('${list.pNo}')"><a>${list.pTitle}</a></div></td>
 <td>${list.pStartDate}~${list.pEndDate}</td>
 <td class="uploadDate">${list.pCreateDate} ${list.pCreateTime}</td>
-<td class= "lastT">${list.pUseYn}</td>
+<td class= "lastT">
+<select onchange="changeYn('${list.pNo}',this.value)">
+	
+	<c:if test ="${list.pUseYn eq 'Y'}">
+	<option value="Y" selected="selected">Y</option>
+	<option value="N">N</option>	
+	</c:if>
+	
+	<c:if test ="${list.pUseYn ne 'Y'}">
+	<option value="Y" >Y</option>
+	<option value="N" selected="selected">N</option>	
+	</c:if>
+</select>
+</td>
+
 </tr>
 </c:forEach>
 

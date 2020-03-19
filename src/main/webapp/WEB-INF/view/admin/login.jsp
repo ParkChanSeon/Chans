@@ -45,7 +45,7 @@ function loginCheck(){
 			success: function(jRes){
 				
 				var result = jRes;
-				//console.log(JSON.stringify(result))
+				console.log(JSON.stringify(result))
 				
 				if(result.success == "Y"){
 					
@@ -254,7 +254,8 @@ function logOutBtnClick(){
 				
 				$(".logOutDiv").css("display","none");
 				$(".loginDiv").css("display","inline-block");
-				$(".regDiv").css("display","none");
+				$(".regDiv").css("display","none"); */
+				
 				 */
 				window.location.href= "${pageContext.request.contextPath}"
 				}

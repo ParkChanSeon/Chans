@@ -129,8 +129,31 @@ i_type= #{iType}
 
 <!-- 로고 정보들 가져오기 -->
 <select id ="selectLogoList" resultMap="imageMap">
-select i_project_no, i_name, i_type, i_path from images where i_type='logo'
-</select>
+
+<!-- select i_project_no, i_name, i_type, i_path from images where i_type='logo'
+ -->
+
+ select a.i_project_no, a.i_name, a.i_type, a.i_path 
+ from images a 
+ left outer join projects b
+ on a.i_project_no = b.p_no 
+ where a.i_type='logo' and b.p_use_yn = 'Y' ; 
+ 
+ </select>
+
+
+<!-- 프로젝트 사용유무 변경 -->
+
+<update id = "updateUseYn" parameterType="kr.chans.project.model.ProjectVO">
+ update projects 
+ set
+ p_use_yn = #{pUseYn}
+ where 
+ p_no = #{pNo}
+
+</update>
+
+
 
 
 </mapper>

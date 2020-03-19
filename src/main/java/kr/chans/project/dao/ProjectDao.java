@@ -23,15 +23,15 @@ public class ProjectDao {
 	}
 	
 	
-	public void saveProject(ProjectVO param) {
+	public Integer saveProject(ProjectVO param) {
 		
-		sqlSession.insert(strNameSpace + ".saveProject", param);
+		return sqlSession.insert(strNameSpace + ".saveProject", param);
 	}
 
 	
-	public void saveImage(ImageVO param) {
+	public Integer saveImage(ImageVO param) {
 		
-		sqlSession.insert(strNameSpace + ".saveImage", param);
+		return sqlSession.insert(strNameSpace + ".saveImage", param);
 	}
 	
 	// 프로젝트매니저에 사용할 리스트
@@ -65,4 +65,11 @@ public class ProjectDao {
 		return result;
 	}
 	
+	
+	// 프로젝트 사용유무 변경
+	public Integer updateUseYn(ProjectVO param) {
+		
+		return sqlSession.update(strNameSpace + ".updateUseYn",param);
+	
+	}
 }

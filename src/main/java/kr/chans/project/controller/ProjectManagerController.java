@@ -1,3 +1,4 @@
+
 package kr.chans.project.controller;
 
 import java.io.File;
@@ -6,11 +7,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -279,6 +282,82 @@ public class ProjectManagerController {
 		// System.out.println("현재시간 : " + date);
 		
 		return date;
+	}
+	
+	
+	// 프로젝트 사용유무 변경
+	@RequestMapping(value="/admin/projects/use" , method = RequestMethod.PUT)
+	public @ResponseBody AJaxResVO updateUseYn(
+			@RequestBody ProjectVO data, HttpServletRequest request) {
+		/*
+		 * 	put 요청의 경우 
+		 *  ajax 
+		 *  contentType :"application/json"
+		 *  JSON.stringify() 필수 
+		 *  controller에서는 @RequestBody로 받아야한다.
+		 *  request.parameter("")는 get,pos에서만 사용가
+		 */
+		AdminVO loginUser = (AdminVO) request.getSession().getAttribute("loginUser");
+		
+		AJaxResVO jRes = new AJaxResVO();
+		
+		if(loginUser != null) {
+			
+			String pUseYn = data.getpUseYn();
+			String pNo = data.getpNo();
+			
+			
+			// System.out.println("pUseYn : " + pUseYn);
+			// System.out.println("pNo : " + pNo);
+			
+			if(pUseYn != null && !"".equals(pUseYn)
+				&& pNo != null && !"".equals(pNo)) {
+				
+				ProjectVO param = new ProjectVO();
+				
+				param.setpNo(pNo);
+				param.setpUseYn(pUseYn);
+				
+				try {
+					
+				int result = projectService.updateUseYn(param);
+				
+				if(result > 0) {
+					jRes.setResult("SUCCESS");
+					jRes.setSuccess(AJaxResVO.SUCCESS_Y);
+					
+				}else {
+					jRes.setResult("Fail");
+					jRes.setSuccess(AJaxResVO.SUCCESS_N);
+					
+				}
+				
+				
+				} catch (Exception e) {
+					jRes.setResult("Exception");
+					jRes.setSuccess(AJaxResVO.SUCCESS_N);
+					e.printStackTrace();
+				}
+				
+			
+			}else {
+				
+				jRes.setResult("Parameter Error");
+				jRes.setSuccess(AJaxResVO.SUCCESS_N);
+				
+			}
+			
+			
+		}else {
+			
+			jRes.setResult("Login Fail");
+			jRes.setSuccess(AJaxResVO.SUCCESS_N);
+		}
+		
+		
+		
+		
+		return jRes;
 	}
 	
 	
